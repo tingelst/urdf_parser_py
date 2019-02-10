@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
-from catkin_pkg.python_setup import generate_distutils_setup
+from setuptools import setup, find_packages
 
-d = generate_distutils_setup(
-    packages=['urdf_parser_py', 'urdf_parser_py.xml_reflection'],
-    package_dir={'': 'src'}
-)
-
-setup(**d)
+setup(name='urdf_parser_py',
+      packages=['urdf_parser_py', 'urdf_parser_py.xml_reflection'],
+      package_dir={'': 'src'},
+      install_requires=[
+          'pyyaml',
+          'lxml'
+      ],
+      )
